@@ -81,6 +81,7 @@ class GridBagLayoutFrame extends JFrame {
         gbc.weightx = 1;
 
         label = new JLabel("Beschreibung:");
+        label.setForeground(Color.red);
         gbl.setConstraints(label, gbc);
         getContentPane().add(label);
 

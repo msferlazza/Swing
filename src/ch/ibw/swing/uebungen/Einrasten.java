@@ -28,8 +28,7 @@ public class Einrasten extends JFrame {
             {
                 Rectangle bounds = getBounds();
                 if (bounds.getMaxX() > screenSize.getWidth() - 20) {
-                    setLocation((int) (screenSize.getWidth() - bounds.getWidth()),
-                            (int) bounds.getY());
+                    setLocation(screenSize.width - bounds.width, bounds.y);
                 }
             }
         });

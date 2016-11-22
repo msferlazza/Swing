@@ -1,0 +1,43 @@
+package ch.ibw.swing.uebungen;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+
+/**
+ * Created by Michele on 22.11.2016.
+ */
+public class Einrasten extends JFrame {
+
+    public Einrasten()
+    {
+
+        // Titelleiste definieren
+        setTitle("Frame ohne Inhalt");
+        // Setze die Groesse des Frames
+        setSize(400, 200);
+        // Schalte den Frame sichtbar
+        setVisible(true);
+        // Setze das Verhalten des Frames beim Schliessen
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentMoved(ComponentEvent e)
+            {
+                Rectangle bounds = getBounds();
+                if (bounds.getMaxX() > screenSize.getWidth() - 200) {
+                    setLocation((int) (screenSize.getWidth() - bounds.getWidth()),
+                            (int) bounds.getY());
+                }
+            }
+        });
+
+    }
+
+    public static void main(String[] args)
+    {
+        Einrasten frame = new Einrasten();
+    }
+}

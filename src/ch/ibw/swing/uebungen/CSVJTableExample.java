@@ -49,7 +49,7 @@ public class CSVJTableExample extends JFrame {
             @Override
             public boolean accept(File pathname)
             {
-                return pathname.getName().toLowerCase().endsWith("csv");
+                return pathname.isDirectory() ||  pathname.getName().toLowerCase().endsWith("csv");
             }
 
             @Override
@@ -76,6 +76,9 @@ public class CSVJTableExample extends JFrame {
 
     private TableModel parseCSVAndCreateTableModel(final File file)
     {
+        if(file == null) {
+            return null;
+        }
 
         final Vector v = new Vector();
         BufferedReader br = null;

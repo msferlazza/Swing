@@ -15,7 +15,7 @@ public class ActionListenerBeispiel implements ActionListener {
         JFrame myJFrame = new JFrame("Einfacher ActionListener");
         myJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JButton jb = new JButton("Hier drücken");
-
+        jb.setActionCommand("BT1");
         ActionListenerBeispiel behandeln = new ActionListenerBeispiel();
         jb.addActionListener(behandeln); // Füge Listener zu Button
         myJFrame.add(jb); // Füge Button zu Frame
